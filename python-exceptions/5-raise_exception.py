@@ -3,5 +3,3 @@
 def raise_exception():
     try:
         raise TypeError
-    finally:
-        print("Expection raised")
