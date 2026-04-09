@@ -6,15 +6,15 @@ Creates a BaseGeometry class.
 
 class BaseGeometry:
   """Class with public instance methods."""
-    def area(self):
+def area(self):
         """Raises an Exception with the message
         'area() is not implemented'.
         """
-        raise("area() is not implemented")
+    raise("area() is not implemented")
 
-    def integer_validator(self, name, value):
+def integer_validator(self, name, value):
     """Validates value."""
-        if type(value) is not int:
-            raise TypeError("{} must be an integer".format(name))
-        elif value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
+    if type(value) is not int:
+        raise TypeError("{} must be an integer".format(name))
+    elif value <= 0:
+        raise ValueError("{} must be greater than 0".format(name))
