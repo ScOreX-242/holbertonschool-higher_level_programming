@@ -7,9 +7,9 @@ Creates a BaseGeometry class.
 class BaseGeometry:
   """Class with public instance methods."""
 def area(self):
-        """Raises an Exception with the message
+    """Raises an Exception with the message
         'area() is not implemented'.
-        """
+    """
     raise("area() is not implemented")
 
 def integer_validator(self, name, value):
