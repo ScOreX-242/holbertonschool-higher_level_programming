@@ -15,6 +15,5 @@ class Student:
             for key in attrs:
                 if key in self.__dict__:
                     filtered_dict[key] = self.__dict__[key]
-            return filtered_dict
-        
-    return self.__dict__
+            return filtered_dict  
+        return self.__dict__
