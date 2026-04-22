@@ -17,9 +17,9 @@ def fetch_and_save_posts():
     response = requests.get(url)
     if response.status_code == 200:
         posts = response.json()
-    list_of_dicts = [{'id': post['id'], 'title': post['title'], 'body': post['body']} for post in posts]
-    with open('posts.csv', 'w', newline='', encoding='utf-8') as csvfile:
-        fieldnames = ['id', 'title', 'body']
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(list_of_dicts)
+        list_of_dicts = [{'id': post['id'], 'title': post['title'], 'body': post['body']} for post in posts]
+        with open('posts.csv', 'w', newline='', encoding='utf-8') as csvfile:
+            fieldnames = ['id', 'title', 'body']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(list_of_dicts)
