@@ -1,34 +1,34 @@
 #!/usr/bin/python3
-"""
-Script that lists all states from the database hbtn_0e_0_usa.
-"""
-
 import MySQLdb
 import sys
 
+# run only if script is executed directly
 if __name__ == "__main__":
-    # Connect to MySQL server
+
+    # get arguments from command line
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+
+    # connect to MySQL server
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
-        user=sys.argv[1],
-        passwd=sys.argv[2],
-        db=sys.argv[3]
+        user=username,
+        passwd=password,
+        db=database
     )
 
-    # Create cursor
-    cursor = db.cursor()
+    # create cursor to execute queries
+    cur = db.cursor()
 
-    # Execute SQL query
-    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    # select all states ordered by id
+    cur.execute("SELECT * FROM states ORDER BY id ASC")
 
-    # Fetch all the rows
-    rows = cursor.fetchall()
-
-    # Print results
-    for row in rows:
+    # fetch and print all rows
+    for row in cur.fetchall():
         print(row)
 
-    # Close cursor and database connection
-    cursor.close()
+    # close cursor and connection
+    cur.close()
     db.close()
