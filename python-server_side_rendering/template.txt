@@ -1,0 +1,8 @@
+Hi {name},
+
+We’re happy to invite you to {event_title}, which will take place on {event_date} at {event_location}.
+
+It would be great to have you join us and be part of the event.
+
+Kind regards,
+The Event Team
