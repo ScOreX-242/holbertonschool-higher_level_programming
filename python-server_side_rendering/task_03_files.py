@@ -53,14 +53,12 @@ def show_products():
     source = request.args.get('source')
     pid = request.args.get('id')
 
-    # проверка source
-    if source not in ["json", "csv"]:
-        return render_template('product_display.html', error="Invalid source")
 
-    # загрузка данных
+    if source not in ["json", "csv"]:
+        return render_template('product_display.html', error="Wrong source")
+
     products = load_json_data() if source == "json" else load_csv_data()
 
-    # фильтрация по id
     if pid:
         try:
             pid = int(pid)
