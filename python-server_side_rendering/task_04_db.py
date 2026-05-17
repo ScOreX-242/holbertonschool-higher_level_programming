@@ -16,13 +16,12 @@ def get_csv_products():
     with open('products.csv') as file:
         reader = csv.DictReader(file)
         for row in reader:
-            product = {
+            data.append({
                 "id": int(row["id"]),
                 "name": row["name"],
                 "category": row["category"],
                 "price": float(row["price"])
-            }
-            data.append(product)
+            })
     return data
 
 
@@ -71,7 +70,7 @@ def list_products():
     pid = request.args.get('id')
 
     if src not in ["json", "csv", "sql"]:
-        return render_template('product_display.html', error="Invalid source")
+        return render_template('product_display.html', error="Wrong source")
 
     if src == "json":
         products = get_json_products()
@@ -88,7 +87,7 @@ def list_products():
         except ValueError:
             return render_template('product_display.html', error="Product not found")
 
-        products = [item for item in products if item["id"] == pid]
+        products = [p for p in products if p["id"] == pid]
 
         if not products:
             return render_template('product_display.html', error="Product not found")
