@@ -1,3 +1,4 @@
+#!/usr/bin/node
 document.querySelector('#toggle_header').onclick = function () {
   const header = document.querySelector('header');
 
